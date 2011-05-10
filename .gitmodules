@@ -1,5 +1,5 @@
 [submodule "bundle/gundo"]
-	path = /Users/ramon/.vim/bundle/gundo
+	path = bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive

@@ -1,4 +1,4 @@
-[submodule "/Users/ramon/.vim/bundle/gundo"]
+[submodule "bundle/gundo"]
 	path = /Users/ramon/.vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
 [submodule "bundle/fugitive"]

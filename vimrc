@@ -37,15 +37,25 @@ set statusline+=%f\                          " filename
 set statusline+=%h%m%r%w                     " status flags
 set statusline+=\[%{strlen(&ft)?&ft:'none'}] " file type
 set statusline+=%=                           " right align remainder
-set statusline+=0x%-8B                       " character value
+" set statusline+=0x%-8B                       " character value
 set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
+set statusline+=%#warningmsg#                " syntastic warning
+set statusline+=%{SyntasticStatuslineFlag()} " syntastic status flag
+set statusline+=%{fugitive#statusline()}     " fugutive git info
 
 " Show line number and cursor position
 set ruler
 
 " Display incomplete commands.
 set showcmd
+
+" Key (re) mappings
+" Map the C-movement keys to window movement, I always delete words when I don't
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
 
 " Search stuff
 set showmatch " show matching brackets
@@ -86,14 +96,18 @@ set number
 set list
 set listchars=tab:→.,trail:-,eol:↵
 
-" Minibuffexpl part
-map <Leader>u :UMiniBufExplorer<cr> " update minibufexp window
-map <Leader>t :TMiniBufExplorer<cr> " terminate minibufexp window
-let g:miniBufExplMapWindowNavVim = 1 " map window keys to navigation (hjkl)
-let g:miniBufExplMapWindowNavArrows = 1 " map window keys to arrow keys
-let g:miniBufExplMapCTabSwitchBufs = 1 " switch to different buffer with tab
-let g:miniBufExplModSelTarget = 1 " Don't use unmodifiable windows to put buffer in
-
 " Set autocompletion for python
 " Bindings are the standard Crtl+N or Crtl+X Ctrl+O
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+" Syntastic error window should auto open on errors
+let g:syntastic_auto_loc_list=2
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+" buffergator plugin settings
+" split size = 20
+let g:buffergator_split_size = 30
+" sort buffers by most recently used
+let g:buffergator_sort_regime = 'mru'
+" only show buffer name, don't bother with dirs/filenames
+let g:buffergator_display_regime = 'basename'

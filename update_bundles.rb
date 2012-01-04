@@ -32,6 +32,7 @@ git_bundles = [
   "git://github.com/mitechie/pyflakes-pathogen.git",
   "git://github.com/vim-scripts/pep8.git",
   "git://github.com/fs111/pydoc.vim.git",
+  "git://github.com/jmcantrell/vim-virtualenv.git",
 ]
 
 vim_org_scripts = [

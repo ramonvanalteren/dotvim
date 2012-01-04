@@ -27,7 +27,8 @@ git_bundles = [
   "git://github.com/scrooloose/syntastic.git",
   "git://github.com/rodjek/vim-puppet.git",
   "git://github.com/jeetsukumaran/vim-buffergator.git",
-  "git://github.com/vim-scripts/Specky.git"
+  "git://github.com/vim-scripts/Specky.git",
+  "git://github.com/rygwdn/vim-conque",
 ]
 
 vim_org_scripts = [

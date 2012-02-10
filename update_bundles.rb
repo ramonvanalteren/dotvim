@@ -29,7 +29,7 @@ git_bundles = [
   "git://github.com/jeetsukumaran/vim-buffergator.git",
   "git://github.com/vim-scripts/Specky.git",
   "git://github.com/rygwdn/vim-conque",
-  "git://github.com/mitechie/pyflakes-pathogen.git",
+  "git://github.com/ramonvanalteren/pyflakes-vim.git",
   "git://github.com/vim-scripts/pep8.git",
   "git://github.com/fs111/pydoc.vim.git",
   "git://github.com/jmcantrell/vim-virtualenv.git",
@@ -53,7 +53,7 @@ Dir["*"].each {|d| FileUtils.rm_rf d }
 git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
   puts "unpacking #{url} into #{dir}"
-  `git clone #{url} #{dir}`
+  `git clone --recursive #{url} #{dir}`
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
 

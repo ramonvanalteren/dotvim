@@ -2,16 +2,18 @@
 " " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" This sets up the pathogen plugin, which allows me to install other plugins
+" as a bundle
+call pathogen#infect()
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+
 " This makes sure that whenever I save this file, it is reloaded in my current editor
 " So any changes I save to the vimrc file are automatically in effect as soon as I save it.
 if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-" This sets up the pathogen plugin, which allows me to install other plugins
-" as a bundle
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
 
 " Enable syntax highlighting.
 syntax on
@@ -111,3 +113,6 @@ let g:buffergator_split_size = 30
 let g:buffergator_sort_regime = 'mru'
 " only show buffer name, don't bother with dirs/filenames
 let g:buffergator_display_regime = 'basename'
+
+" More buffer settings
+set hidden " allow hidden buffers
